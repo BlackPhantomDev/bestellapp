@@ -3,31 +3,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>bestellapp</title>
+    <title>Bestellapp</title>
     <link rel="stylesheet" href="./style.css">
     <link rel="stylesheet" href="./css/fonts.css">
     <link rel="stylesheet" href="./css/standard.css">
+    <link rel="stylesheet" href="./css/assets.css">
+    <link rel="shortcut icon" href="./assets/img/favicon.ico" type="image/x-icon">
 </head>
-<body>
+<body onload="init()">
     <header id="header_bar">
         <div id="title_logo">
-            <img id="logo" src="./assets/img/Bestell App- Logo.svg" alt="Logo Bestellapp">
+            <a href="./index.html"><img id="logo" src="./assets/img/Bestell App- Logo.svg" alt="Logo Bestellapp"></a>
         </div>
     </header>
 
-    <main id="main_content">
-        
-    </main>
+    <main id="main_content_wrapper">
 
-    <aside id="cart_basket">
+        <section class="menue" id="menue">
+
+        </section>
         
-    </aside>
+            
+        </main>
+        <section id="cart_basket_wrapper">
+            <div id="cart_basket">
+                <h3>Warenkorb</h3>
+                <div id="cart_items">
+                   
+                    <div id="cart_item_counter">
+                        <button class="basket-btn">-</button>
+                        <span id="amount_{id}">1x</span>
+                        <button class="basket-btn">+</button>
+                    </div>
+
+                    <span id="dish">Pizza</span>
+
+                </div>
+            </div>
+        </section>
+    <span id="open_cart_basket" onclick="toggleOpenBasket()">
+        <img src="./assets/icons/basket.png" alt="Icon zum Einkaufswagen öffnen">
+    </span>
+
 
     <footer id="footer">
         <p>© - Mischa Siegrist - 2025</p>
-        <p>Icons by <a href="https://icons8.com">icons8.com</a></p>
+        <a href="./impressum.html">Impressum</a>
     </footer>
 
 </body>
+<script src="./js/dishes.js"></script>
+<script src="./js/templates.js"></script>
 <script src="./script.js"></script>
 </html>
