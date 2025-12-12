@@ -8,7 +8,7 @@ function getDishTemplate(name, price, description, imgSrc, dishId) {
             <div class="dish-info">
                 <h3>${name}</h3><h4>${price} CHF</h4>
                 <p>${description}</p>
-                <button id="add_dish" onclick="openBasket();addDishToBasket()">Zum Warenkorb hinzufügen</button>
+                <button id="add_dish" onclick="addDishToBasket();">Zum Warenkorb hinzufügen</button>
             </div>
         </div>
 
