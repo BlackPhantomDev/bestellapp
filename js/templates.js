@@ -1,11 +1,15 @@
-function getDishTemplate(name, description, imgSrc, dishId) {
+function getDishTemplate(name, price, description, imgSrc, dishId) {
     return `
     
-        <div id="dish">
-            <h3>${name}</h3>
-            <p>${description}</p>
-            <img src="${imgSrc}" width=300px alt="">
-            <button id="add_dish" onclick="addDishToBasket(${dishId})">+</button>
+        <div class="dish">
+            <div class="dish-img">
+                <img src="${imgSrc}" alt="">
+            </div>
+            <div class="dish-info">
+                <h3>${name}</h3><h4>${price} CHF</h4>
+                <p>${description}</p>
+                <button id="add_dish" onclick="openBasket();addDishToBasket()">Zum Warenkorb hinzufügen</button>
+            </div>
         </div>
 
     `;
