@@ -11,6 +11,14 @@ function toggleOpenBasket() {
     cartBasketWrapper.classList.toggle('visible');
 }
 
+function closeBasket() {
+    cartBasketWrapper.classList.remove('visible');
+}
+
+function addDishToBasket() {
+    showConfirmMessage();
+}
+
 function showConfirmMessage() {
     confirmMessage.classList.add('visible');
     setTimeout(() => {
