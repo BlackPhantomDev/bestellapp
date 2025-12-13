@@ -135,6 +135,17 @@
     transition: all .1s ease-in-out;
 }
 
+@media (min-width: 1600px) {
+    #open_cart_basket {
+        right: calc(50% - 700px);
+    }
+}
+@media (min-width: 1800px) {
+    #open_cart_basket {
+        right: calc(50% - 800px);
+    }
+}
+
 #open_cart_basket img {
     width: 50px;
     height: 50px;
