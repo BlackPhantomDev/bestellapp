@@ -7,7 +7,7 @@ let dishes = [
     },
     {
         "name":"Cheese Burger",
-        "price":"4.20",
+        "price":"5.20",
         "description":"Saftiges Rindfleisch Patty, überbacken mit geschmolzenem Cheddar, serviert auf einem leicht gerösteten Sesambrötchen mit Salat, Tomate, Zwiebel und unserer würzigen Burger Sauce.",
         "imgSrc":"./assets/img/cheeseburger.jpg"
     },
@@ -19,7 +19,7 @@ let dishes = [
     },
     {
         "name":"Pizza Margherita",
-        "price":"12.00",
+        "price":"17.00",
         "description":"Dünner, knuspriger Boden, bestrichen mit aromatischer San-Marzano-Tomatensauce, belegt mit cremigem Büffelmozzarella und frischem Basilikum, nach dem Backen mit einem Hauch Olivenöl veredelt.",
         "imgSrc":"./assets/img/pizza-margherita.jpg"
     },
