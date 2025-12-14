@@ -29,7 +29,7 @@
 #confirm_message {
     position: fixed;
     left: 50%;
-    transform: translate(-50%, 150%);
+    transform: translate(-50%, 200px);
     bottom: 140px;
     padding: 10px;
     background-color: rgb(240, 240, 240);
