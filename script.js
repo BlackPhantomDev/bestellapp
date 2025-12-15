@@ -2,6 +2,10 @@ let cartBasketWrapper = document.getElementById('cart_basket_wrapper');
 let confirmMessage = document.getElementById('confirm_message');
 let menue = document.getElementById('menue');
 
+let cartItemIndex = [];
+let cartItem = [];
+let cartItemAmount = [];
+
 
 function init() {
     renderDishes();
@@ -42,4 +46,13 @@ function renderDishes() {
 
 function renderCartBasket() {
     cartBasketWrapper.innerHTML = getCartBasketTemplate();
+}
+
+
+function saveToLocalStorage() {
+    
+}
+
+function getFromLocalStorage() {
+    
 }
