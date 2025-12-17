@@ -28,19 +28,22 @@ function getCartBasketTemplate() {
                     <tr>
                         <th>Menge</th>
                         <th>Artikel</th>
+                        <th>Preis</th>
                     </tr>
                 </thead>
                 <tbody id="cart_table_content">
                     
                 </tbody>
             </table>
+            <h4>Total:</h4>
         </div>
         <button id="checkout_btn">Zum Checkout</button>
     </div>
     `;
 }
 
-function getNewCartItem(id, name, amount) {
+function getNewCartItem(id, name, amount, basePrice) {
+    let displayedPrice = basePrice * amount;
     return `
         <tr>
             <td class="cart-item-counter">
@@ -49,6 +52,7 @@ function getNewCartItem(id, name, amount) {
                 <button class="basket-btn" onclick="addAmount(${id})">+</button>
             </td>
             <td class="item-name">${name}</td>
+            <td>${displayedPrice.toFixed(2)} CHF</td>
         </tr>
     `;
 }
