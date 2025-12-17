@@ -1,6 +1,5 @@
 function getDishTemplate(name, price, description, imgSrc, dishId) {
     return `
-    
         <div class="dish">
             <div class="dish-img">
                 <img src="${imgSrc}" alt="">
@@ -8,7 +7,7 @@ function getDishTemplate(name, price, description, imgSrc, dishId) {
             <div class="dish-info">
                 <h3>${name}</h3><h4>${price} CHF</h4>
                 <p>${description}</p>
-                <button id="add_dish" onclick="addDishToBasket();">Zum Warenkorb hinzufügen</button>
+                <button id="add_dish" onclick="addDishToBasket(${dishId});">Zum Warenkorb hinzufügen</button>
             </div>
         </div>
 
@@ -21,23 +20,35 @@ function getCartBasketTemplate() {
         <div id="cart_content">
             <h3>Warenkorb</h3>
             <button id="close_cart_basket" onclick="closeBasket()">X</button>
-            <div class="cart-items">
-            
-                <div class="cart-item">
-                
-                    <div class="cart-item-counter">
-                        <button class="basket-btn">-</button>
-                        <span id="amount_{id}">1x</span>
-                        <button class="basket-btn">+</button>
-                    </div>
-                    
-                    <span class="item-name">Pizza</span>
-                    
-                    </div>
-                
-                </div>
+            <div id="empty_cart">
+                <h5>Warenkorb ist leer</h5>
             </div>
+            <table class="cart-table">
+                <thead>
+                    <tr>
+                        <th>Menge</th>
+                        <th>Artikel</th>
+                    </tr>
+                </thead>
+                <tbody id="cart_table_content">
+                    
+                </tbody>
+            </table>
+        </div>
         <button id="checkout_btn">Zum Checkout</button>
     </div>
+    `;
+}
+
+function getNewCartItem(id, name, amount) {
+    return `
+        <tr>
+            <td class="cart-item-counter">
+                <button class="basket-btn" onclick="removeAmount(${id})">-</button>
+                <span>${amount}x</span>
+                <button class="basket-btn" onclick="addAmount(${id})">+</button>
+            </td>
+            <td class="item-name">${name}</td>
+        </tr>
     `;
 }
