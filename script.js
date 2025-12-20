@@ -200,16 +200,20 @@ function saveToLocalStorage() {
 function getFromLocalStorage() {
     cartItemId = [];
     cartItemAmount = [];
-    deliverySwitchStatus = null;
+    deliverySwitchStatus = false;
 
     let localStorageCartItemId = localStorage.getItem("cartItemId");
     let localStorageCartItemAmount = localStorage.getItem("cartItemAmount");
     let localStorageDeliverySwitchStatus = localStorage.getItem("deliverySwitchStatus");
 
-    cartItemId = JSON.parse(localStorageCartItemId);
-    cartItemAmount = JSON.parse(localStorageCartItemAmount);
-    deliverySwitchStatus = JSON.parse(localStorageDeliverySwitchStatus);
-    
+    if (localStorageCartItemId !== null && localStorageCartItemId !== '[]') {
+        cartItemId = JSON.parse(localStorageCartItemId);
+    }else if (localStorageCartItemAmount !== null && localStorageCartItemAmount !== '[]') {
+        cartItemAmount = JSON.parse(localStorageCartItemAmount);
+    }else if (localStorageDeliverySwitchStatus !== null && localStorageDeliverySwitchStatus !== '[]') {
+        deliverySwitchStatus = JSON.parse(localStorageDeliverySwitchStatus);
+    }
+
     if ((cartItemId && cartItemAmount) || deliverySwitchStatus) {
         totalPrice = calculateTotalPrice();
     }
