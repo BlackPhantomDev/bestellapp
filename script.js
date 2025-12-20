@@ -7,6 +7,7 @@ let body = document.getElementsByTagName('body')[0];
 // of the dish whos added to cart 
 let cartItemId = [];
 let cartItemAmount = [];
+let totalPrice = 0;
 
 
 function init() {
@@ -52,7 +53,7 @@ function addDishToBasket(index) {
         cartItemId.push(dish.id);
         cartItemAmount.push(1);
     }
-    
+    totalPrice = calculateTotalPrice();
     renderCartBasket();    
 }
 
@@ -114,14 +115,50 @@ function isCartEmpty(emptyCart, cartTable, isEmpty) {
     }
 }
 
-// removes 1 from the amount
-function removeAmount(id) {
-    
+// removes or add 1 from the amount
+function changeAmount(id, actionValue) {
+    let cartItemIndex = cartItemId.indexOf(id);
+        
+    if (actionValue == "remove") {
+        if (cartItemAmount[cartItemIndex] > 1) {
+            cartItemAmount[cartItemIndex] -= 1;
+        } else {
+            removeDishFromBasket(cartItemIndex); 
+        }
+    } else if (actionValue == "add") {
+        cartItemAmount[cartItemIndex] += 1;
+    }
+    totalPrice = calculateTotalPrice();
+    renderCartBasket();    
 }
 
-// add 1 to the amount
-function addAmount(id) {
-    
+function calculateTotalPrice() {
+    let total = 0;
+    for (let i = 0; i < cartItemId.length; i++) {
+        const dish = dishes[cartItemId[i]];
+        total += dish.price * cartItemAmount[i];
+    }
+    if (cartItemId.length > 0) {
+        total += 5.90;
+    }
+    return total;
+}
+
+// remove an item from cart if amount 
+// is already by 1 and still remove 1
+function removeDishFromBasket(itemIndex) {
+    cartItemId.splice(itemIndex, 1);
+    cartItemAmount.splice(itemIndex, 1);
+    totalPrice = calculateTotalPrice();
+    renderCartBasket();
+}
+
+function clearCart() {
+    cartItemId = [];
+    cartItemAmount = [];
+    totalPrice = 0;
+    renderCartBasket(); 
+    saveToLocalStorage();
 }
 
 // saves the arrays to localstorage
@@ -141,4 +178,8 @@ function getFromLocalStorage() {
     cartItemId = JSON.parse(localStorageCartItemId);
 
     cartItemAmount = JSON.parse(localStorageCartItemAmount);
+    
+    if (cartItemId && cartItemAmount) {
+        totalPrice = calculateTotalPrice();
+    }
 }
