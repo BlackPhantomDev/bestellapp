@@ -434,8 +434,8 @@
     }
 
     #cart_basket {
-        min-height: 800px;
-        padding: 20px 50px;
+        max-height: 80vh;
+        min-height: 600px;
     }
 
     .cart-table {
