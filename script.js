@@ -198,23 +198,36 @@ function saveToLocalStorage() {
 
 // loads arrays from localstorage to array
 function getFromLocalStorage() {
-    cartItemId = [];
-    cartItemAmount = [];
-    deliverySwitchStatus = false;
-
     let localStorageCartItemId = localStorage.getItem("cartItemId");
     let localStorageCartItemAmount = localStorage.getItem("cartItemAmount");
     let localStorageDeliverySwitchStatus = localStorage.getItem("deliverySwitchStatus");
 
-    if (localStorageCartItemId !== null && localStorageCartItemId !== '[]') {
-        cartItemId = JSON.parse(localStorageCartItemId);
-    }else if (localStorageCartItemAmount !== null && localStorageCartItemAmount !== '[]') {
-        cartItemAmount = JSON.parse(localStorageCartItemAmount);
-    }else if (localStorageDeliverySwitchStatus !== null && localStorageDeliverySwitchStatus !== '[]') {
-        deliverySwitchStatus = JSON.parse(localStorageDeliverySwitchStatus);
-    }
+    cartItemId = [];
+    cartItemAmount = [];
+    deliverySwitchStatus = false;
+
+    checkLocalStorageData(localStorageCartItemId, localStorageCartItemAmount, localStorageDeliverySwitchStatus);
 
     if ((cartItemId && cartItemAmount) || deliverySwitchStatus) {
         totalPrice = calculateTotalPrice();
+    }
+}
+
+// this function processes the data from 
+// local storage and saves them in the arrays
+function checkLocalStorageData(localStorageCartItemId, localStorageCartItemAmount, localStorageDeliverySwitchStatus) {
+    if (localStorageCartItemId !== null && localStorageCartItemId !== '[]') {
+        cartItemId = JSON.parse(localStorageCartItemId);
+    }
+    if (localStorageCartItemAmount !== null && localStorageCartItemAmount !== '[]') {
+        cartItemAmount = JSON.parse(localStorageCartItemAmount);
+    }
+    if (localStorageDeliverySwitchStatus !== null && localStorageDeliverySwitchStatus !== '[]') {
+        deliverySwitchStatus = JSON.parse(localStorageDeliverySwitchStatus);
+    }
+    if (cartItemId.length !== cartItemAmount.length) {
+        cartItemId = [];
+        cartItemAmount = [];
+        alert("Warenkorb-Daten beschädigt – wurde zurückgesetzt.");
     }
 }
