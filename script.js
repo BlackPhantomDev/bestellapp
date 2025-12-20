@@ -8,6 +8,8 @@ let body = document.getElementsByTagName('body')[0];
 let cartItemId = [];
 let cartItemAmount = [];
 let totalPrice = 0;
+let deliveryPrice = 0;
+let deliverySwitchStatus = false;
 
 
 function init() {
@@ -100,7 +102,29 @@ function renderCartBasket() {
     } else {
         isCartEmpty(emptyCart, cartTable, true);
     }
+    setupDeliverySwitchListener();
     saveToLocalStorage();
+}
+
+// sets up the event listener for the delivery switch
+// only once, if not already added
+// updates deliveryPrice and deliverySwitchStatus on change
+// recalculates totalPrice and re-renders the cart
+function setupDeliverySwitchListener() {
+    let deliverySwitch = document.getElementById('switch');
+
+    if (deliverySwitch && !deliverySwitch.hasAttribute('data-listener-added')) {
+        deliverySwitch.addEventListener('change', function() {
+            deliveryPrice = deliverySwitch.checked ? 5.9 : 0;
+            deliverySwitchStatus = deliverySwitch.checked ? true : false;
+            totalPrice = calculateTotalPrice();            
+            renderCartBasket();
+        });
+        deliverySwitch.setAttribute('data-listener-added', 'true');
+        deliverySwitch.checked = deliverySwitchStatus;
+        deliveryPrice = deliverySwitch.checked ? 5.9 : 0;
+        totalPrice = calculateTotalPrice();            
+    }
 }
 
 // this function sets the visibility of the content
@@ -132,6 +156,7 @@ function changeAmount(id, actionValue) {
     renderCartBasket();    
 }
 
+// calculates the total price 
 function calculateTotalPrice() {
     let total = 0;
     for (let i = 0; i < cartItemId.length; i++) {
@@ -139,7 +164,9 @@ function calculateTotalPrice() {
         total += dish.price * cartItemAmount[i];
     }
     if (cartItemId.length > 0) {
-        total += 5.90;
+        total += deliveryPrice;
+    } else {
+        total = deliveryPrice;
     }
     return total;
 }
@@ -153,10 +180,11 @@ function removeDishFromBasket(itemIndex) {
     renderCartBasket();
 }
 
+// clears cart; resets all arrays and price
 function clearCart() {
     cartItemId = [];
     cartItemAmount = [];
-    totalPrice = 0;
+    totalPrice = calculateTotalPrice();
     renderCartBasket(); 
     saveToLocalStorage();
 }
@@ -165,21 +193,24 @@ function clearCart() {
 function saveToLocalStorage() {
     localStorage.setItem("cartItemId", JSON.stringify(cartItemId));
     localStorage.setItem("cartItemAmount", JSON.stringify(cartItemAmount));
+    localStorage.setItem("deliverySwitchStatus", JSON.stringify(deliverySwitchStatus));
 }
 
 // loads arrays from localstorage to array
 function getFromLocalStorage() {
     cartItemId = [];
     cartItemAmount = [];
+    deliverySwitchStatus = null;
 
     let localStorageCartItemId = localStorage.getItem("cartItemId");
     let localStorageCartItemAmount = localStorage.getItem("cartItemAmount");
+    let localStorageDeliverySwitchStatus = localStorage.getItem("deliverySwitchStatus");
 
     cartItemId = JSON.parse(localStorageCartItemId);
-
     cartItemAmount = JSON.parse(localStorageCartItemAmount);
+    deliverySwitchStatus = JSON.parse(localStorageDeliverySwitchStatus);
     
-    if (cartItemId && cartItemAmount) {
+    if ((cartItemId && cartItemAmount) || deliverySwitchStatus) {
         totalPrice = calculateTotalPrice();
     }
 }
