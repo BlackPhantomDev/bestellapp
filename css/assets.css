@@ -53,6 +53,13 @@
     opacity: 1;
 }
 
+.cart_btn {
+    padding: 12px 16px;
+    border-radius: 5px;
+    transition: all .3s ease-in-out;
+    cursor: pointer;
+    width: 150px;
+}
 
 /* Media queries */
 
