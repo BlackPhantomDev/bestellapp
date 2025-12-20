@@ -37,7 +37,20 @@ function getCartBasketTemplate() {
                 </table>
         </div>
         <div id="checkout">
-            <span>Versand: 5.90 CHF</span><h4>Total: <span>${totalPrice.toFixed(2)} CHF</span></h4>
+            <div id="price_switch_section">
+                <div id="delivery_switch">
+                    <img src="./assets/icons/pickup.png" alt="Abhol Symbol">
+                    <label class="switch">
+                        <input id="switch" type="checkbox">
+                        <span class="slider round"></span>
+                    </label>
+                    <img src="./assets/icons/delivery.png" alt="Liefern Symbol">
+                </div>
+                <div id="total_price">
+                    <span>Lieferkosten: ${deliveryPrice.toFixed(2)} CHF</span>
+                    <h4>Total: <span>${totalPrice.toFixed(2)} CHF</span></h4>
+                </div>
+            </div>
             <div id="cart_btns_container">
                 <button class="cart_btn" id="checkout_btn">Zum Checkout</button>
                 <button class="cart_btn" id="clear_cart_btn" onclick="clearCart()">Warenkorb leeren</button>
