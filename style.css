@@ -285,42 +285,4 @@
 
     /* END OF TITLE BANNER STYLE */
 
-    /* START OF CART BASKET STYLE */
-
-    #cart_basket_wrapper {
-        position: fixed;
-        top: 50%;
-        transform: translate(-50%, 1500%);
-        left: 50%;
-        width: 80%;
-        align-self: flex-start;
-        z-index: 10;
-
-        border: unset;
-        opacity: 0;
-        transition: transform .4s ease,
-                    opacity .4s ease;
-    }
-
-    #cart_basket_wrapper.visible {
-        transform: translate(-50%, -50%);
-        opacity: 1;
-    }
-
-    #cart_basket {
-        max-height: 80vh;
-        min-height: 600px;
-    }
-
-    .cart-table {
-        margin: 64px 0;
-        width: 100%;
-        border-collapse: collapse;
-    }
-
-    #close_cart_basket {
-        top: 30px;
-        right: 30px;
-    }
-    /* END OF CART BASKET STYLE */
 }
