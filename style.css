@@ -134,9 +134,8 @@
     flex-direction: column;
     justify-content: space-between;
     padding: 20px;
-    width: 100%;
-    min-height: 500px;
-    max-height: 800px;
+    width: 570px;
+    height: 650px;
     box-shadow: rgba(0, 0, 0, 0.26) 10px 10px 50px;
     background-color: #eeeeee;
     overflow: auto;
@@ -144,6 +143,8 @@
 
 #cart_content {
     text-align: center;
+    
+    margin: 48px 0;
 }
 
 #empty_cart {
@@ -152,9 +153,13 @@
     text-align: center;
 }
 
+#cart_table_wrapper {
+    display: block;
+    max-height: 300px;
+    overflow-y: scroll;
+}
+
 .cart-table {
-    margin: 48px 0;
-    width: 100%;
     border-collapse: collapse;
     font-family: CreatoDisplay;
 }
@@ -163,6 +168,7 @@
 .cart-table td {
     border: 1px solid #ddd;
     padding: 0.5rem 1rem;
+    height: 48px;
 }
 
 .cart-table th {
@@ -178,7 +184,7 @@
 }
 
 .cart-dish-name {
-    max-width: 200px;
+    width: 200px;
 }
 
 #amount {
@@ -186,7 +192,7 @@
 }
 
 .cart-price-tag {
-    max-width: 150px;
+    width: 150px;
 }
 
 #cart_btns_container {
@@ -277,7 +283,7 @@
 #open_cart_basket {
     position: fixed;
     right: 50px;
-    bottom: 175px;
+    bottom: 75px;
     background-color: #ff8000;
     padding: 10px;
     border-radius: 100%;
@@ -358,18 +364,6 @@
     }
 }
 
-@media (max-width: 992px) {
-    #banner {
-        justify-content: flex-end;
-    }
-    #banner img {
-        height: 250px;
-        max-height: 250px;
-        max-width: 380px;
-        object-fit: cover;
-    }
-}
-
 @media (max-width: 1100px) {
     .menue {
         flex-direction: row;
@@ -398,9 +392,27 @@
     }
 }
 
+@media (max-width: 992px) {
+    #banner {
+        justify-content: flex-end;
+    }
+    #banner img {
+        height: 250px;
+        max-height: 250px;
+        max-width: 380px;
+        object-fit: cover;
+    }
+}
+
 @media (max-width: 772px) {
     #menue {
-        padding: 20px;
+        padding: 50px 20px 80px 20px;
+    }
+    #open_cart_basket {
+        right: 50%;
+        transform: translateX(50%);
+        bottom: 100px;
+        transition: all .1s ease-in-out;
     }
     /* START OF TITLE BANNER STYLE */
     #title_banner {
