@@ -17,24 +17,26 @@ function getDishTemplate(name, price, description, imgSrc, dishId) {
 function getCartBasketTemplate() {
     return `
      <div id="cart_basket">
+        <h3>Warenkorb</h3>
         <div id="cart_content">
-            <h3>Warenkorb</h3>
             <button id="close_cart_basket" onclick="closeBasket()">X</button>
             <div id="empty_cart">
                 <h5>Warenkorb ist leer</h5>
             </div>
-            <table class="cart-table">
-                <thead>
-                    <tr>
-                        <th class="cart-dish-name">Artikel</th>
-                        <th class="cart-item-counter">Menge</th>
-                        <th class="cart-price-tag">Preis</th>
-                    </tr>
-                </thead>
-                <tbody id="cart_table_content">
-                    
-                </tbody>
+            <div id="cart_table_wrapper">
+                <table class="cart-table">
+                    <thead>
+                        <tr>
+                            <th class="cart-dish-name">Artikel</th>
+                            <th class="cart-item-counter">Menge</th>
+                            <th class="cart-price-tag">Preis</th>
+                        </tr>
+                    </thead>
+                    <tbody id="cart_table_content">
+                        
+                    </tbody>
                 </table>
+            </div>
         </div>
         <div id="checkout">
             <div id="price_switch_section">

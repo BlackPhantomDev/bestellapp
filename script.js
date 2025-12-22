@@ -90,17 +90,17 @@ function renderDishes() {
 function renderCartBasket() {
     cartBasketWrapper.innerHTML = getCartBasketTemplate();
     let emptyCart = document.getElementById('empty_cart');
+    let cartTableWrapper = document.getElementById('cart_table_wrapper');
     let cartTableContent = document.getElementById('cart_table_content');
-    let cartTable = document.getElementsByClassName('cart-table')[0];
 
     if (cartItemId.length != 0) {
-        isCartEmpty(emptyCart, cartTable, false);
+        isCartEmpty(emptyCart, cartTableWrapper, false);
         for (let i = 0; i < cartItemId.length; i++) {
             const dish = dishes[cartItemId[i]];
             cartTableContent.innerHTML += getNewCartItem(dish.id, dish.name, cartItemAmount[i], dish.price);
         }
     } else {
-        isCartEmpty(emptyCart, cartTable, true);
+        isCartEmpty(emptyCart, cartTableWrapper, true);
     }
     setupDeliverySwitchListener();
     saveToLocalStorage();
@@ -129,13 +129,13 @@ function setupDeliverySwitchListener() {
 
 // this function sets the visibility of the content
 // and the not avaiable message
-function isCartEmpty(emptyCart, cartTable, isEmpty) {
+function isCartEmpty(emptyCart, cartTableWrapper, isEmpty) {
     if (isEmpty) {
         emptyCart.style.display = 'block';
-        cartTable.style.display = 'none';
+        cartTableWrapper.style.display = 'none';
     } else {
         emptyCart.style.display = 'none';
-        cartTable.style.display = 'table';
+        cartTableWrapper.style.display = 'block';
     }
 }
 
