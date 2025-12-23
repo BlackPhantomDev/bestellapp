@@ -24,18 +24,9 @@ function getCartBasketTemplate() {
                 <h5>Warenkorb ist leer</h5>
             </div>
             <div id="cart_table_wrapper">
-                <table class="cart-table">
-                    <thead>
-                        <tr>
-                            <th class="cart-dish-name">Artikel</th>
-                            <th class="cart-item-counter">Menge</th>
-                            <th class="cart-price-tag">Preis</th>
-                        </tr>
-                    </thead>
-                    <tbody id="cart_table_content">
-                        
-                    </tbody>
-                </table>
+                <div id="cart_table">
+                    
+                </div>
             </div>
         </div>
         <div id="checkout">
@@ -65,14 +56,15 @@ function getCartBasketTemplate() {
 function getNewCartItem(id, name, amount, basePrice) {
     let displayedPrice = basePrice * amount;
     return `
-        <tr>
-            <td class="cart-dish-name">${name}</td>
-            <td class="cart-item-counter">
+        <div class="cart-table-item">
+            <div class="item-name-price">
+                <span>${name}</span><span>${displayedPrice.toFixed(2)} CHF</span>
+            </div>
+            <div class="item-counter">
                 <button class="basket-btn" onclick="changeAmount(${id}, 'remove')">-</button>
                 <span id="amount">${amount}x</span>
                 <button class="basket-btn" onclick="changeAmount(${id}, 'add')">+</button>
-            </td>
-            <td class="cart-price-tag">${displayedPrice.toFixed(2)} CHF</td>
-        </tr>
+            </div>
+        </div>
     `;
 }
