@@ -185,7 +185,7 @@
 
 
 @media (min-width: 2400px) {
-    #open_cart_basket, #cart_basket_wrapper {
+    #open_cart_basket, #cart_basket_wrapper.visible {
         right: calc(50% - 1150px);
     }
 }
