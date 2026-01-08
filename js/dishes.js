@@ -40,5 +40,19 @@ let dishes = [
         "price":"8.95",
         "description":"Duftende, handgezogene Weizennudeln in einer klaren, langsam gekochten Brühe, ergänzt durch zarte Scheiben Schweinebauch, Frühlingszwiebeln, ein weich gekochtes Ei und Algenstreifen.",
         "imgSrc":"./assets/img/ramen.jpg"
+    },
+    {
+        "id":6,
+        "name":"Tiramisu",
+        "price":"9.00",
+        "description":"Ein Stück Italien? Bitte sehr. Der Klassiker unter den Italienischen Desserts neben dem Gelato. Zartes Kaffee-Schichtdessert mit weichem Mascarpone und Kakaopulver bestreut.",
+        "imgSrc":"./assets/img/tiramisu.jpeg"
+    },
+    {
+        "id":7,
+        "name":"Käsekuchen (Quarktorte)",
+        "price":"4.50",
+        "description":"Geniesse unseren cremigen Käsekuchen – ein zarter, leicht säuerlicher Genuss, der auf einem knusprigen Mürbeteig ruht und mit einer dezenten Vanillenote vollendet wird. Perfekt als süsser Abschluss oder Begleitung zu einer Tasse Kaffee.",
+        "imgSrc":"./assets/img/kaesekuchen.jpg"
     }
 ]
