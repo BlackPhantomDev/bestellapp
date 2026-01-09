@@ -44,14 +44,14 @@ let dishes = [
     {
         "id":6,
         "name":"Tiramisu",
-        "price":"9.00",
+        "price":"6.50",
         "description":"Ein Stück Italien? Bitte sehr. Der Klassiker unter den Italienischen Desserts neben dem Gelato. Zartes Kaffee-Schichtdessert mit weichem Mascarpone und Kakaopulver bestreut.",
         "imgSrc":"./assets/img/tiramisu.jpeg"
     },
     {
         "id":7,
         "name":"Käsekuchen (Quarktorte)",
-        "price":"4.50",
+        "price":"6.95",
         "description":"Geniesse unseren cremigen Käsekuchen – ein zarter, leicht säuerlicher Genuss, der auf einem knusprigen Mürbeteig ruht und mit einer dezenten Vanillenote vollendet wird. Perfekt als süsser Abschluss oder Begleitung zu einer Tasse Kaffee.",
         "imgSrc":"./assets/img/kaesekuchen.jpg"
     }
