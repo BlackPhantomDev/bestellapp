@@ -241,3 +241,10 @@
         height: 100%;
     }
 }
+
+@media (max-width: 400px) {
+    #price_switch_section {
+        flex-direction: column;
+        gap: 20px;
+    }
+}
