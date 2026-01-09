@@ -1,0 +1,57 @@
+.inner-dialog{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    background-color: white;
+    max-width: 800px;
+    width: 80vw;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+
+    border: none;
+    border-radius: 8px;
+    padding: 30px 30px 100px 30px;
+
+    letter-spacing: 2px;
+}
+
+#checkout_dialog {
+    border: none;
+    border-radius: 8px;
+    transition: all .5s ease-in;
+}
+#checkout_dialog.opened {
+    transition: all .5s ease-in-out;
+}
+#checkout_dialog::backdrop {
+    background-color: rgba(0, 0, 0, 0);
+    transition: all .3s ease-in;
+}
+#checkout_dialog.opened::backdrop {
+    background-color: rgba(0, 0, 0, 0.5);
+    transition: all .3s ease-in;
+}
+#dialog_header {
+    display: flex;
+    justify-content: flex-end;
+}
+.close-btn {
+    all: unset;
+    width: 44px;
+    height: 44px;
+    cursor: pointer;
+    border-radius: 50%;
+}
+.close-btn img {
+    width: 44px;
+    height: 44px;
+}
+#dialog_content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 50px;
+}

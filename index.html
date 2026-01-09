@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="./css/standard.css">
     <link rel="stylesheet" href="./css/assets.css">
     <link rel="stylesheet" href="./css/basket.css">
+    <link rel="stylesheet" href="./css/dialog.css">
     <link rel="shortcut icon" href="./assets/img/favicon.ico" type="image/x-icon">
 </head>
 <body onload="init()">
@@ -63,6 +64,24 @@
         Produkt zum Warenkorb hinzugefügt!
     </span>
 
+    <section id="dialog_section">
+        <dialog id="checkout_dialog">
+            <div class="inner-dialog">
+                <header id="dialog_header">
+                    <button onclick="closeDialog()" href="#" class="close-btn navigation-btn" type="button" tabindex="0">
+                        <img src="./assets/icons/close-icon.png" alt="Schliessen Button"/>
+                    </button>
+                </header>
+                
+                <section id="dialog_content">
+                    <h2>Vielen Dank für Ihre Bestellung!</h2>
+                    <h5>Sie erhalten bald eine E-Mail als best&auml;tigung.&nbsp; Falls Sie diese nicht innerhalb der nächsten 10 min erhalten, schauen Sie in Ihrem Spam-Ordner nach.</h5>
+                </section>
+
+            </div>
+        </dialog>
+    </section>
+
     <footer id="footer">
         <p>© - Mischa Siegrist - 2025</p>
         <a href="./impressum.html">Impressum</a>
@@ -70,6 +89,7 @@
 
 </body>
 <script src="./js/dishes.js"></script>
+<script src="./js/dialog.js"></script>
 <script src="./js/templates.js"></script>
 <script src="./script.js"></script>
 </html>
