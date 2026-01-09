@@ -45,7 +45,7 @@ function getCartBasketTemplate() {
                 </div>
             </div>
             <div id="cart_btns_container">
-                <button class="cart_btn" id="checkout_btn">Zum Checkout</button>
+                <button class="cart_btn" id="checkout_btn" onclick="openDialog()">Jetzt Bestellen</button>
                 <button class="cart_btn" id="clear_cart_btn" onclick="clearCart()">Warenkorb leeren</button>
             </div>
         </div>
