@@ -50,7 +50,7 @@ let dishes = [
     },
     {
         "id":7,
-        "name":"Käsekuchen (Quarktorte)",
+        "name":"Käsekuchen &shy;(Quarktorte)",
         "price":"6.95",
         "description":"Geniesse unseren cremigen Käsekuchen – ein zarter, leicht säuerlicher Genuss, der auf einem knusprigen Mürbeteig ruht und mit einer dezenten Vanillenote vollendet wird. Perfekt als süsser Abschluss oder Begleitung zu einer Tasse Kaffee.",
         "imgSrc":"./assets/img/kaesekuchen.jpg"
