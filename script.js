@@ -231,3 +231,8 @@ function checkLocalStorageData(localStorageCartItemId, localStorageCartItemAmoun
         alert("Warenkorb-Daten beschädigt – wurde zurückgesetzt.");
     }
 }
+
+
+function functionNotAvaiable() {
+    alert("Diese Funktion ist momentan nicht verfügbar!");
+}
