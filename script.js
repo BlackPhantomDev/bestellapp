@@ -184,6 +184,7 @@ function removeDishFromBasket(itemIndex) {
 function clearCart() {
     cartItemId = [];
     cartItemAmount = [];
+    deliverySwitchStatus = false;
     totalPrice = calculateTotalPrice();
     renderCartBasket(); 
     saveToLocalStorage();
