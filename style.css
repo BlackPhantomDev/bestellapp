@@ -319,3 +319,13 @@
     /* END OF TITLE BANNER STYLE */
 
 }
+
+@media (max-width: 520px) {
+    #menue_categories_list {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+        padding: 20px;
+    }
+}
