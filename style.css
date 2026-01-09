@@ -29,8 +29,9 @@
     justify-content: center;
     height: 400px;
     width: 100%;
-    margin: 50px 0;
+    margin: 50px 0 0 0;
 }
+
 #banner_bg {
     display: flex;
     background-image: url('./assets/img/banner.png');
@@ -62,6 +63,32 @@
     width: 350px;
     object-fit: cover;
     aspect-ratio: 1/1;
+}
+
+#restaurant_title_banner {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 400px;
+    width: 100%;
+    margin: 0 0 50px 0;
+    gap: 48px;
+}
+#restaurant_banner {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#restaurant_banner img {
+    height: 250px;
+    object-fit: cover;
+}
+#banner_text {
+    width: 80%;
+    max-width: 750px;
+    text-align: center;
 }
 
 .container-line {
@@ -120,6 +147,9 @@
     align-items: center;
     padding: 30px 0;
     width: 100%;
+}
+.dish-info h3 {
+    width: 70%;
 }
 .dish-img {
     max-width: 300px;
@@ -281,16 +311,20 @@
         height: 600px;
         width: 100%;
     }
+
     #banner_bg {
         display: flex;
         flex-direction: column;
         align-items: center;
         background-image: url('./assets/img/banner-horizontal.png');
-        background-size: cover;
-        background-position: center;
+    }
+    
+    #restaurant_title_banner {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 450px;
         width: 100%;
-        max-width: 1440px;
-        height: 100%;
     }
 
     #title {
