@@ -33,7 +33,7 @@ function getDesktopCartBasketTemplate() {
                     <div id="delivery_switch">
                         <img src="./assets/icons/pickup.png" alt="Abhol Symbol">
                         <label class="switch">
-                            <input id="switch" type="checkbox">
+                            <input id="switch-desktop" type="checkbox">
                             <span class="slider round"></span>
                         </label>
                         <img src="./assets/icons/delivery.png" alt="Liefern Symbol">
@@ -72,7 +72,7 @@ function getMobileCartBasketTemplate() {
                 <div id="delivery_switch">
                     <img src="./assets/icons/pickup.png" alt="Abhol Symbol">
                     <label class="switch">
-                        <input id="switch" type="checkbox">
+                        <input id="switch-mobile" type="checkbox">
                         <span class="slider round"></span>
                     </label>
                     <img src="./assets/icons/delivery.png" alt="Liefern Symbol">

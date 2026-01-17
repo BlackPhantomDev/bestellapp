@@ -103,11 +103,11 @@
   transition: .4s;
 }
 
-#switch:checked + .slider {
+#switch-desktop:checked + .slider, #switch-mobile:checked + .slider  {
   background-color: #ff8000;
 }
 
-#switch:checked + .slider:before {
+#switch-desktop:checked + .slider:before, #switch-mobile:checked + .slider:before {
   -webkit-transform: translateX(32px);
   -ms-transform: translateX(32px);
   transform: translateX(32px);
