@@ -244,6 +244,8 @@
 #impressum_content p, #impressum_content li, #impressum_content dl { 
     font-size: 18px;
     font-family: CreatoDisplay;
+    max-width: 500px;
+    width: 100%;
 }
 
 
@@ -264,7 +266,7 @@
         min-width: 0;
         max-width: 300px;
         width: 300px;
-        height: 700px;
+        height: 750px;
     }
     .dish-info {
         display: flex;
@@ -340,7 +342,7 @@
         min-width: 0;
         max-width: 500px;
         width: 500px;
-        height: 700px;
+        height: 750px;
     }
     .dish-img {
         max-width: unset;
