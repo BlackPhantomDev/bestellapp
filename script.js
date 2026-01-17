@@ -228,9 +228,13 @@ function calculateTotalPrice() {
 
 // remove an item from cart if amount 
 // is already by 1 and still remove 1
-function removeDishFromBasket(itemIndex) {
-    cartItemId.splice(itemIndex, 1);
-    cartItemAmount.splice(itemIndex, 1);
+function removeDishFromBasket(id) {
+    const index = cartItemId.indexOf(id);
+    if (index === -1) return;
+
+    cartItemId.splice(index, 1);
+    cartItemAmount.splice(index, 1);
+
     totalPrice = calculateTotalPrice();
     renderCartBasket();
 }
