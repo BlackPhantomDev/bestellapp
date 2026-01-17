@@ -116,6 +116,7 @@ function renderDishes() {
 // if not set default message
 function renderCartBasket() {
     deliveryPrice = deliverySwitchStatus ? 5.9 : 0;
+    totalPrice = calculateTotalPrice();
     if (deviceModeMobile == true) {
         renderMobileCart();
     }else {
