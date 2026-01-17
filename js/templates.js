@@ -22,8 +22,8 @@ function getDesktopCartBasketTemplate() {
                 <div id="desktop_empty_cart">
                     <h5>Warenkorb ist leer</h5>
                 </div>
-                <div id="desktop_cart_table_wrapper">
-                    <div id="desktop_cart_table">
+                <div id="cart_table_wrapper">
+                    <div id="cart_table">
                         
                     </div>
                 </div>

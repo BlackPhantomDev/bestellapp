@@ -129,8 +129,8 @@ function renderCartBasket() {
 function renderDesktopCart() {
     desktopCartBasketWrapper.innerHTML = getDesktopCartBasketTemplate();
     let emptyCart = document.getElementById('desktop_empty_cart');
-    let cartTableWrapper = document.getElementById('desktop_cart_table_wrapper');
-    let cartTableContent = document.getElementById('desktop_cart_table');
+    let cartTableWrapper = document.getElementById('cart_table_wrapper');
+    let cartTableContent = document.getElementById('cart_table');
 
     if (cartItemId.length != 0) {
         isCartEmpty(emptyCart, cartTableWrapper, false);
