@@ -22,6 +22,8 @@
 
 #main_content_wrapper {
     min-height: calc(100vh - 240px);
+    display: flex;
+    justify-content: center;
 }
 
 #title_banner {
@@ -250,13 +252,7 @@
 /* Media queries */
 
 
-@media (min-width: 2400px) {
-    #open_cart_basket, #cart_basket_wrapper.visible {
-        right: calc(50% - 1150px);
-    }
-}
-
-@media (max-width: 1100px) {
+@media (max-width: 1320px) {
     .menue {
         flex-direction: row;
         flex-wrap: wrap;
@@ -269,6 +265,92 @@
         max-width: 300px;
         width: 300px;
         height: 700px;
+    }
+    .dish-info {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        padding: 30px 0;
+        width: 100%;
+        height: 100%;
+    }
+    .dish-info p {
+        width: 70%;
+    }
+}
+
+@media (min-width: 993px) and (max-width: 1144px) {
+    /* START OF TITLE BANNER STYLE */
+    #title_banner {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 600px;
+        width: 100%;
+    }
+
+    #banner_bg {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-image: url('./assets/img/banner-horizontal.png');
+    }
+    
+    #restaurant_title_banner {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 400px;
+        width: 100%;
+    }
+
+    #title {
+        height: 100%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #banner {
+        max-height: 50%;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    #banner img {
+        height: 250px;
+        max-height: 250px;
+        max-width: 380px;
+        object-fit: cover;
+    }
+
+    /* END OF TITLE BANNER STYLE */
+
+    .menue {
+        padding: 30px;
+    }
+    .dish {
+        display: flex;
+        flex-direction: column;
+        background-color: #fdba7b;
+        min-width: 0;
+        max-width: 500px;
+        width: 500px;
+        height: 700px;
+    }
+    .dish-img {
+        max-width: unset;
+        max-height: 300px;
+    }
+    .dish-img img {
+        width: 100%;
+        height: 100%;
+        aspect-ratio: 1/1;
+        object-fit: cover;
     }
     .dish-info {
         display: flex;
@@ -304,9 +386,9 @@
         padding: 50px 20px 80px 20px;
     }
     #open_cart_basket {
-        right: 50%;
+        right: 50px;
         transform: translateX(50%);
-        bottom: 100px;
+        bottom: 85px;
         transition: all .1s ease-in-out;
     }
     /* START OF TITLE BANNER STYLE */

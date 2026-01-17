@@ -14,7 +14,45 @@ function getDishTemplate(name, price, description, imgSrc, dishId) {
     `;
 }
 
-function getCartBasketTemplate() {
+function getDesktopCartBasketTemplate() {
+    return `
+        <div id="desktop_cart_basket">
+            <h3>Warenkorb</h3>
+            <div id="desktop_cart_content">
+                <div id="desktop_empty_cart">
+                    <h5>Warenkorb ist leer</h5>
+                </div>
+                <div id="desktop_cart_table_wrapper">
+                    <div id="desktop_cart_table">
+                        
+                    </div>
+                </div>
+            </div>
+            <div id="desktop_checkout">
+                <div id="price_switch_section">
+                    <div id="delivery_switch">
+                        <img src="./assets/icons/pickup.png" alt="Abhol Symbol">
+                        <label class="switch">
+                            <input id="switch" type="checkbox">
+                            <span class="slider round"></span>
+                        </label>
+                        <img src="./assets/icons/delivery.png" alt="Liefern Symbol">
+                    </div>
+                    <div id="total_price">
+                        <span>Lieferkosten: ${deliveryPrice.toFixed(2)} CHF</span>
+                        <h4>Total: <span>${totalPrice.toFixed(2)} CHF</span></h4>
+                    </div>
+                </div>
+                <div id="cart_btns_container">
+                    <button class="cart_btn" id="clear_cart_btn" onclick="clearCart(2)">Warenkorb leeren</button>
+                    <button class="cart_btn" id="checkout_btn" onclick="checkout()">Jetzt Bestellen</button>
+                </div>
+            </div>
+        </div>
+    `;
+}
+
+function getMobileCartBasketTemplate() {
     return `
      <div id="cart_basket">
         <h3>Warenkorb</h3>
@@ -45,8 +83,8 @@ function getCartBasketTemplate() {
                 </div>
             </div>
             <div id="cart_btns_container">
-                <button class="cart_btn" id="checkout_btn" onclick="openDialog()">Jetzt Bestellen</button>
-                <button class="cart_btn" id="clear_cart_btn" onclick="clearCart()">Warenkorb leeren</button>
+                <button class="cart_btn" id="checkout_btn" onclick="checkout()">Jetzt Bestellen</button>
+                <button class="cart_btn" id="clear_cart_btn" onclick="clearCart(2)">Warenkorb leeren</button>
             </div>
         </div>
     </div>

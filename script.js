@@ -1,7 +1,8 @@
-let cartBasketWrapper = document.getElementById('cart_basket_wrapper');
-let confirmMessage = document.getElementById('confirm_message');
-let menue = document.getElementById('menue');
-let body = document.getElementsByTagName('body')[0];
+const mobileCartBasketWrapper = document.getElementById('mobile_cart_basket_wrapper');
+const desktopCartBasketWrapper = document.getElementById('desktop_cart_basket_wrapper');
+const messageElement = document.getElementById('message_box');
+const menue = document.getElementById('menue');
+const body = document.getElementsByTagName('body')[0];
 
 // saves the id and the amount
 // of the dish whos added to cart 
@@ -11,6 +12,9 @@ let totalPrice = 0;
 let deliveryPrice = 0;
 let deliverySwitchStatus = false;
 
+let mobileCartStatus = false;
+let deviceModeMobile = false;
+
 
 function init() {
     getFromLocalStorage();
@@ -18,12 +22,27 @@ function init() {
     renderCartBasket();
 }
 
+// checks if window is desktop size 
+// and cart was still open 
+window.addEventListener('resize', function() {
+    if (window.innerWidth >= 993) {
+        if (mobileCartStatus == true) {
+            closeBasket();
+        }
+        deviceModeMobile = false;
+    }else {
+        deviceModeMobile = true;
+    }
+});
+
+
 // when clicked on open basket btn
 // render the cart basket and then show basket wrapper
 // prevent scrolling of body when basket open
 function toggleOpenBasket() {
     renderCartBasket();
-    cartBasketWrapper.classList.toggle('visible');
+    mobileCartBasketWrapper.classList.toggle('visible');
+    mobileCartStatus = true;
     if (body.style.overflow != "hidden") {
         body.style.overflow = "hidden";
     } else {
@@ -34,7 +53,8 @@ function toggleOpenBasket() {
 // hide basket wrapper
 // let scroll body again
 function closeBasket() {
-    cartBasketWrapper.classList.remove('visible');
+    mobileCartBasketWrapper.classList.remove('visible');
+    mobileCartStatus = false;
     body.style.overflow = "auto";
 }
 
@@ -44,7 +64,7 @@ function closeBasket() {
 // if in array, count amount up
 // render cart again
 function addDishToBasket(index) {
-    showConfirmMessage();
+    showMessage("Produkt zum Warenkorb hinzugefügt!\n");
     const dish = dishes[index];
     let cartItemIndex;
     
@@ -60,11 +80,13 @@ function addDishToBasket(index) {
 }
 
 // shows message, after 5sec hide message
-function showConfirmMessage() {
-    confirmMessage.classList.add('visible');
+function showMessage(message) {
+    messageElement.innerHTML += `<p>${message}</<p>`;
+    messageElement.classList.add('visible');
     setTimeout(() => {
-        confirmMessage.classList.remove('visible');
-    }, 5000);
+        messageElement.classList.remove('visible');
+        messageElement.innerHTML = "";
+    }, 5000);   
 }
 
 // render dishes in menue container -> 
@@ -88,7 +110,34 @@ function renderDishes() {
 // if in list render every of them
 // if not set default message
 function renderCartBasket() {
-    cartBasketWrapper.innerHTML = getCartBasketTemplate();
+    if (deviceModeMobile == true) {
+        renderMobileCart();
+    }else {
+        renderDesktopCart();
+    }
+    setupDeliverySwitchListener();
+    saveToLocalStorage();
+}
+
+function renderDesktopCart() {
+    desktopCartBasketWrapper.innerHTML = getDesktopCartBasketTemplate();
+    let emptyCart = document.getElementById('desktop_empty_cart');
+    let cartTableWrapper = document.getElementById('desktop_cart_table_wrapper');
+    let cartTableContent = document.getElementById('desktop_cart_table');
+
+    if (cartItemId.length != 0) {
+        isCartEmpty(emptyCart, cartTableWrapper, false);
+        for (let i = 0; i < cartItemId.length; i++) {
+            const dish = dishes[cartItemId[i]];
+            cartTableContent.innerHTML += getNewCartItem(dish.id, dish.name, cartItemAmount[i], dish.price);
+        }
+    } else {
+        isCartEmpty(emptyCart, cartTableWrapper, true);
+    }
+}
+
+function renderMobileCart() {
+    mobileCartBasketWrapper.innerHTML = getMobileCartBasketTemplate();
     let emptyCart = document.getElementById('empty_cart');
     let cartTableWrapper = document.getElementById('cart_table_wrapper');
     let cartTableContent = document.getElementById('cart_table');
@@ -102,8 +151,6 @@ function renderCartBasket() {
     } else {
         isCartEmpty(emptyCart, cartTableWrapper, true);
     }
-    setupDeliverySwitchListener();
-    saveToLocalStorage();
 }
 
 // sets up the event listener for the delivery switch
@@ -181,13 +228,28 @@ function removeDishFromBasket(itemIndex) {
 }
 
 // clears cart; resets all arrays and price
-function clearCart() {
-    cartItemId = [];
-    cartItemAmount = [];
-    deliverySwitchStatus = false;
-    totalPrice = calculateTotalPrice();
-    renderCartBasket(); 
-    saveToLocalStorage();
+function clearCart(clearMode) {
+    if (cartItemId.length && cartItemAmount.length != 0) {
+        cartItemId = [];
+        cartItemAmount = [];
+        totalPrice = calculateTotalPrice();
+        renderCartBasket(); 
+        saveToLocalStorage();
+        closeBasket();
+        if (clearMode == 2) {
+            openClearCartDialog();
+        }
+    }else {
+        showMessage("Der Warenkorb ist schon leer!");
+    }
+}
+
+function checkout() {
+    if (cartItemId.length && cartItemAmount.length != 0) {
+        openCheckoutDialog();
+    }else {
+        showMessage("Es sind kein Produkte im Warenkorb!");
+    }
 }
 
 // saves the arrays to localstorage
@@ -229,11 +291,6 @@ function checkLocalStorageData(localStorageCartItemId, localStorageCartItemAmoun
     if (cartItemId.length !== cartItemAmount.length) {
         cartItemId = [];
         cartItemAmount = [];
-        alert("Warenkorb-Daten beschädigt – wurde zurückgesetzt.");
+        showMessage("Warenkorb-Daten beschädigt – wurde zurückgesetzt.");
     }
-}
-
-
-function functionNotAvaiable() {
-    alert("Diese Funktion ist momentan nicht verfügbar!");
 }

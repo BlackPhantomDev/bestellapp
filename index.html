@@ -20,61 +20,63 @@
     </header>
 
     <main id="main_content_wrapper">
-
-        <section id="title_banner">
-            <div id="banner_bg">
-                <div id="title">
-                    <div id="title_text">
-                        <h2>Willkommen in der</h2>
-                        <h1>Bestellapp</h1>
+        <article id="main_content">
+            <section id="title_banner">
+                <div id="banner_bg">
+                    <div id="title">
+                        <div id="title_text">
+                            <h2>Willkommen in der</h2>
+                            <h1>Bestellapp</h1>
+                        </div>
+                    </div>
+                    <div id="banner" >
+                        <img src="./assets/img/cheeseburger-on-plate.png" alt="Cheeseburger auf einem Teller">
                     </div>
                 </div>
-                <div id="banner" >
-                    <img src="./assets/img/cheeseburger-on-plate.png" alt="Cheeseburger auf einem Teller">
+
+            </section>
+
+            <section id="restaurant_title_banner">
+                <div id="restaurant_banner">
+                    <img src="./assets/img/restaurant-logo.png" alt="Restaurant Logo">
                 </div>
-            </div>
+            </section>
 
-        </section>
+            <section id="menue_categories">
+                <div class="container-line"></div>
+                <ul id="menue_categories_list">
+                    <li><a href="#appetizer">Vorspeisen</a></li>
+                    <li><a href="#main_dishes">Hauptgerichte</a></li>
+                    <li><a href="#dessert">Desserts</a></li>
+                </ul>
+                <div class="container-line"></div>
+            </section>
 
-        <section id="restaurant_title_banner">
-            <div id="restaurant_banner">
-                <img src="./assets/img/restaurant-logo.png" alt="Restaurant Logo">
-            </div>
-        </section>
+            <section class="menue" id="menue">
 
-        <section id="menue_categories">
-            <div class="container-line"></div>
-            <ul id="menue_categories_list">
-                <li><a href="#appetizer" onclick="functionNotAvaiable()">Vorspeisen</a></li>
-                <li><a href="#main_dishes" onclick="functionNotAvaiable()">Hauptgerichte</a></li>
-                <li><a href="#dessert" onclick="functionNotAvaiable()">Desserts</a></li>
-            </ul>
-            <div class="container-line"></div>
-        </section>
-
-        <section class="menue" id="menue">
-
-        </section>
-        
+            </section>
+        </article>
+        <aside id="desktop_cart_basket_wrapper">
+            
+        </aside>
             
     </main>
 
-    <div id="cart_basket_wrapper">
+    <div id="mobile_cart_basket_wrapper">
        
     </div>
 
     <span id="open_cart_basket" onclick="toggleOpenBasket()">
         <img src="./assets/icons/basket.png" alt="Icon zum Einkaufswagen öffnen">
     </span>
-    <span id="confirm_message">
-        Produkt zum Warenkorb hinzugefügt!
+    <span id="message_box">
     </span>
 
     <section id="dialog_section">
         <dialog id="checkout_dialog">
             <div class="inner-dialog">
                 <header id="dialog_header">
-                    <button onclick="closeDialog()" href="#" class="close-btn navigation-btn" type="button" tabindex="0">
+                    <button onclick="closeCheckoutDialog()" class="close-btn navigation-btn" type="button" tabindex="0">
                         <img src="./assets/icons/close-icon.png" alt="Schliessen Button"/>
                     </button>
                 </header>
@@ -82,6 +84,20 @@
                 <section id="dialog_content">
                     <h2>Vielen Dank für Ihre Bestellung!</h2>
                     <h5>Sie erhalten bald eine E-Mail als best&auml;tigung.&nbsp; Falls Sie diese nicht innerhalb der nächsten 10 min erhalten, schauen Sie in Ihrem Spam-Ordner nach.</h5>
+                </section>
+
+            </div>
+        </dialog>
+        <dialog id="clear_cart_dialog">
+            <div class="inner-dialog">
+                <header id="dialog_header">
+                    <button onclick="closeClearCartDialog()" class="close-btn navigation-btn" type="button" tabindex="0">
+                        <img src="./assets/icons/close-icon.png" alt="Schliessen Button"/>
+                    </button>
+                </header>
+                
+                <section id="dialog_content">
+                    <h2>Der Warenkorb wurde gelöscht!</h2>
                 </section>
 
             </div>

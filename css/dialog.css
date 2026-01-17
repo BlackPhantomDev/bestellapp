@@ -18,19 +18,19 @@
     letter-spacing: 2px;
 }
 
-#checkout_dialog {
+#checkout_dialog, #clear_cart_dialog {
     border: none;
     border-radius: 8px;
     transition: all .5s ease-in;
 }
-#checkout_dialog.opened {
+#checkout_dialog.opened, #clear_cart_dialog.opened {
     transition: all .5s ease-in-out;
 }
-#checkout_dialog::backdrop {
+#checkout_dialog::backdrop, #clear_cart_dialog::backdrop {
     background-color: rgba(0, 0, 0, 0);
     transition: all .3s ease-in;
 }
-#checkout_dialog.opened::backdrop {
+#checkout_dialog.opened::backdrop, #clear_cart_dialog.opened::backdrop {
     background-color: rgba(0, 0, 0, 0.5);
     transition: all .3s ease-in;
 }

@@ -1,4 +1,4 @@
-let dishes = [
+const dishes = [
     {
         "id":0,
         "name":"Hamburger",

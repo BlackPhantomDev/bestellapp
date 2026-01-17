@@ -1,4 +1,19 @@
-#cart_basket_wrapper {
+#desktop_cart_basket_wrapper {
+    position: sticky;
+    position: -webkit-sticky;
+    top: 0;
+    max-height: calc(100vh - 120px);
+    padding: 80px 30px;
+}
+#desktop_cart_basket {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    width: 350px;
+}
+
+#mobile_cart_basket_wrapper {
     position: fixed;
     top: 50%;
     transform: translate(1500%, -50%);
@@ -14,7 +29,7 @@
                 opacity .4s ease-in-out;
 }
 
-#cart_basket_wrapper.visible {
+#mobile_cart_basket_wrapper.visible {
     transform: translate(0, -50%);
     opacity: 1;
 }
@@ -33,8 +48,14 @@
 
 #cart_content {
     text-align: center;
-    margin: 48px 0;
+    margin: 40px 0;
     border: 1px solid rgba(0, 0, 0, 0.3);
+}
+
+#desktop_empty_cart {
+    display: block;
+    margin: 24px 0;
+    text-align: center;
 }
 
 #empty_cart {
@@ -182,11 +203,33 @@
 
 /* Media queries */
 
+@media (min-width: 993px) {
+    #open_cart_basket, #mobile_cart_basket_wrapper.visible, #cart_basket  {
+        display: none;
+    }
+    #price_switch_section {
+        flex-direction: column;
+        gap: 20px;
+    }
+    #cart_btns_container {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        gap: 10px;
+        margin-top: 16px;
+    }
+}
+
+@media (max-width: 992px) {
+    #desktop_cart_basket_wrapper {
+        display: none;
+    }
+}
 
 @media (max-width: 772px) {
     /* START OF CART BASKET STYLE */
     
-    #cart_basket_wrapper {
+    #mobile_cart_basket_wrapper {
         position: fixed;
         top: 50%;
         transform: translate(-50%, 1500%);
@@ -203,7 +246,7 @@
                     opacity .4s ease-in-out;
     }
 
-    #cart_basket_wrapper.visible {
+    #mobile_cart_basket_wrapper.visible {
         transform: translate(-50%, -50%);
         opacity: 1;
     }
@@ -215,7 +258,7 @@
     }
 
     #cart_content {
-        height: 300px;
+        max-height: 300px;
     }
 
     .cart-table td {
@@ -236,7 +279,7 @@
 }
 
 @media (max-width: 600px) {
-    #cart_basket_wrapper {
+    #mobile_cart_basket_wrapper {
         width: 100%;
         height: 100%;
     }
@@ -246,5 +289,15 @@
     #price_switch_section {
         flex-direction: column;
         gap: 20px;
+    }
+    #cart_btns_container {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        gap: 10px;
+        margin-top: 16px;
+    }
+    #cart_table_wrapper {
+        height: 200px;
     }
 }

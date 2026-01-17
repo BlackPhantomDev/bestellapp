@@ -1,28 +1,46 @@
 const checkoutDialog = document.getElementById('checkout_dialog');
+const clearCartDialog = document.getElementById('clear_cart_dialog');
 
-function openDialog() {
-    console.log("open");
+// show dialog
+// add new classes for backdrop 
+// remove scrolling
+function openCheckoutDialog() {
+  closeBasket();
+  clearCart(1);
     
-  // show dialog
   checkoutDialog.showModal();
 
-  // add new classes for backdrop 
   checkoutDialog.classList.add("opened");
-  // and no scrolling
   body.style.overflow = "hidden";
-
-  closeBasket();
-  clearCart();
-
 }
 
-function closeDialog() {
-console.log("close");
-
-  // remove classes who setted by openDialog
+// remove classes who setted by openDialog
+// add scrolling
+// and close the Dialog
+function closeCheckoutDialog() {
   checkoutDialog.classList.remove("opened");
   body.style.overflow = "auto";
   
-  // close the Dialog
   checkoutDialog.close();
+}
+
+
+// same functions as above for other dialog
+function openClearCartDialog() {
+    
+  clearCartDialog.showModal();
+
+  clearCartDialog.classList.add("opened");
+  body.style.overflow = "hidden";
+
+  closeBasket();
+
+}
+
+// same functions as above for other dialog
+function closeClearCartDialog() {
+  clearCartDialog.classList.remove("opened");
+  body.style.overflow = "auto";
+  
+  clearCartDialog.close();
 }
