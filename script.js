@@ -115,6 +115,7 @@ function renderDishes() {
 // if in list render every of them
 // if not set default message
 function renderCartBasket() {
+    deliveryPrice = deliverySwitchStatus ? 5.9 : 0;
     if (deviceModeMobile == true) {
         renderMobileCart();
     }else {
