@@ -17,14 +17,20 @@ let deviceModeMobile = false;
 
 
 function init() {
+    checkWindowWidth();
     getFromLocalStorage();
     renderDishes();
     renderCartBasket();
 }
 
-// checks if window is desktop size 
-// and cart was still open 
 window.addEventListener('resize', function() {
+    checkWindowWidth();
+    renderCartBasket();
+});
+
+// checks window width and switch to
+// desktop or mobile version of cart 
+function checkWindowWidth() {
     if (window.innerWidth >= 993) {
         if (mobileCartStatus == true) {
             closeBasket();
@@ -33,8 +39,7 @@ window.addEventListener('resize', function() {
     }else {
         deviceModeMobile = true;
     }
-});
-
+}
 
 // when clicked on open basket btn
 // render the cart basket and then show basket wrapper
@@ -158,19 +163,20 @@ function renderMobileCart() {
 // updates deliveryPrice and deliverySwitchStatus on change
 // recalculates totalPrice and re-renders the cart
 function setupDeliverySwitchListener() {
-    let deliverySwitch = document.getElementById('switch');
+    const selector = deviceModeMobile ? '#switch-mobile' : '#switch-desktop';
+    const deliverySwitch = document.querySelector(selector);
 
-    if (deliverySwitch && !deliverySwitch.hasAttribute('data-listener-added')) {
+    if (!deliverySwitch.hasAttribute('data-listener-added')) {
         deliverySwitch.addEventListener('change', function() {
             deliveryPrice = deliverySwitch.checked ? 5.9 : 0;
-            deliverySwitchStatus = deliverySwitch.checked ? true : false;
-            totalPrice = calculateTotalPrice();            
+            deliverySwitchStatus = deliverySwitch.checked;
+            totalPrice = calculateTotalPrice();
             renderCartBasket();
         });
         deliverySwitch.setAttribute('data-listener-added', 'true');
         deliverySwitch.checked = deliverySwitchStatus;
         deliveryPrice = deliverySwitch.checked ? 5.9 : 0;
-        totalPrice = calculateTotalPrice();            
+        totalPrice = calculateTotalPrice();
     }
 }
 
