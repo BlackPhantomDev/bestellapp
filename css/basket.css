@@ -113,7 +113,12 @@
     justify-content: space-between;
     align-items: center;
     width: 120px;
-    
+}
+
+.item-btns {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
 }
 
 #cart_btns_container {
@@ -172,10 +177,6 @@
     transition: all .1s ease-in-out;
 }
 
-#close_cart_basket:hover {
-    box-shadow: rgba(0, 0, 0, 0.26) 0px 0px 20px;
-    transition: all .1s ease-in-out;
-}
 
 #checkout {
     display: flex;
