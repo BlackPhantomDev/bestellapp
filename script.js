@@ -86,11 +86,15 @@ function addDishToBasket(index) {
 
 // shows message, after 5sec hide message
 function showMessage(message) {
-    messageElement.innerHTML += `<p>${message}</<p>`;
     messageElement.classList.add('visible');
+    const msgNode = document.createElement('p');
+    msgNode.textContent = message; 
+    messageElement.appendChild(msgNode); 
     setTimeout(() => {
-        messageElement.classList.remove('visible');
-        messageElement.innerHTML = "";
+        msgNode.remove();
+        if (messageElement.children.length === 0) {
+            messageElement.classList.remove('visible');
+        }
     }, 5000);   
 }
 
@@ -105,7 +109,8 @@ function renderDishes() {
             dish.price,
             dish.description,
             dish.imgSrc,
-            dish.id
+            dish.id,
+            dish.category
         );
     }
 }
@@ -130,7 +135,7 @@ function renderDesktopCart() {
     desktopCartBasketWrapper.innerHTML = getDesktopCartBasketTemplate();
     let emptyCart = document.getElementById('desktop_empty_cart');
     let cartTableWrapper = document.getElementById('cart_table_wrapper');
-    let cartTableContent = document.getElementById('cart_table');
+    let cartTableContent = document.getElementById('desktop_cart_table');
 
     if (cartItemId.length != 0) {
         isCartEmpty(emptyCart, cartTableWrapper, false);
@@ -147,7 +152,7 @@ function renderMobileCart() {
     mobileCartBasketWrapper.innerHTML = getMobileCartBasketTemplate();
     let emptyCart = document.getElementById('empty_cart');
     let cartTableWrapper = document.getElementById('cart_table_wrapper');
-    let cartTableContent = document.getElementById('cart_table');
+    let cartTableContent = document.getElementById('mobile_cart_table');
 
     if (cartItemId.length != 0) {
         isCartEmpty(emptyCart, cartTableWrapper, false);
