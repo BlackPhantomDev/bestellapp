@@ -1,6 +1,6 @@
-function getDishTemplate(name, price, description, imgSrc, dishId) {
+function getDishTemplate(name, price, description, imgSrc, dishId, category) {
     return `
-        <div class="dish">
+        <div class="dish" id="${category}">
             <div class="dish-img">
                 <img src="${imgSrc}" alt="">
             </div>
@@ -23,7 +23,7 @@ function getDesktopCartBasketTemplate() {
                     <h5>Warenkorb ist leer</h5>
                 </div>
                 <div id="cart_table_wrapper">
-                    <div id="cart_table">
+                    <div id="desktop_cart_table">
                         
                     </div>
                 </div>
@@ -64,7 +64,7 @@ function getMobileCartBasketTemplate() {
                 <h5>Warenkorb ist leer</h5>
             </div>
             <div id="cart_table_wrapper">
-                <div id="cart_table">
+                <div id="mobile_cart_table">
                     
                 </div>
             </div>
