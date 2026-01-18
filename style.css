@@ -185,6 +185,7 @@
     border: rgba(0, 0, 0, 0.274) solid 1px;
     box-shadow: black 0px 0px 30px;
     transition: all .1s ease-in-out;
+    z-index: 1;
 }
 #open_cart_basket:hover {
     box-shadow: black 0px 0px 40px;

@@ -51,6 +51,7 @@
               opacity .4s ease;
   text-align: center;
   gap: 8px;
+  z-index: 0;
 }
 
 #message_box.visible {
@@ -134,7 +135,7 @@
 @media (max-width: 772px) {
   #message_box {
     max-width: calc(100% - 40px);
-    width: 100%;
+    width: 50%;
     bottom: 44px;
   }
 }

@@ -27,6 +27,7 @@
     opacity: 0;
     transition: transform .4s ease-in-out,
                 opacity .4s ease-in-out;
+    z-index: 100;
 }
 
 #mobile_cart_basket_wrapper.visible {
